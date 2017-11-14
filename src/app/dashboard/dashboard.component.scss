@@ -1,0 +1,40 @@
+.dashboard {
+  padding: 15px;
+  margin-top: 108px;
+
+  &__type {
+    margin: 20px;
+  }
+
+  &__title {
+    border-bottom: 1px solid #c3c1c1;
+  }
+
+  &__info {
+    padding: 15px;
+    background-color: #fffeff;
+    margin: 10px 0;
+  }
+
+  &__total {
+    border-bottom: 1px solid #c3c1c1;
+  }
+
+  &__new-item {
+    background-color: #d4d4d4;
+    text-align: center;
+    color: #3b84dc;
+    margin: 15px 0;
+    padding: 6px;
+    transition: background-color 190ms ease-out;
+
+    &:hover {
+      cursor: pointer;
+      background-color: #E8E5E2;
+    }
+  }
+
+  &__author-icon {
+    margin-right: 10px;
+  }
+}

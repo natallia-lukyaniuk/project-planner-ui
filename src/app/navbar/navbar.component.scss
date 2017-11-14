@@ -1,0 +1,49 @@
+.navbar {
+  display: flex;
+  padding: 15px;
+  justify-content: space-between;
+  overflow: hidden;
+  background-color: #f0edf1;
+  position: fixed; /* Set the navbar to fixed position */
+  top: 0; /* Position the navbar at the top of the page */
+  width: 100%; /* Full width */
+  border-bottom: 1px solid #c3c1c1;
+
+  &__title {
+    font-size: 20px;
+    color: #949596;
+  }
+
+  &__avatar {
+    width: 128px;
+    height: 78px;
+  }
+
+  &__header {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  &__items {
+    display: flex;
+  }
+
+  &__item {
+    margin-right: 20px;
+
+    &:hover,
+    &--active {
+      color: #3b84dc;
+      cursor: pointer;
+
+      span {
+        border-bottom: 1px solid #3b84dc;
+      }
+    }
+  }
+
+  &__members {
+    
+  }
+}

@@ -1,0 +1,25 @@
+<div class="login">
+    <form #f="ngForm"
+      class="login__form"
+      name="form"
+      (ngSubmit)="f.form.valid && login()">
+      <input type="text"
+        name=""
+        id=""
+        placeholder="Email"
+        class="login__input"
+        [(ngModel)]="user.name">
+      <input type="password"
+        name=""
+        id=""
+        placeholder="password"
+        class="login__input"
+        [(ngModel)]="user.password">
+      <button [disabled]="loading"
+        class="slds-button slds-button_neutral login__button">
+        Войти
+      </button>
+      <div *ngIf="error" class="">{{error}}</div>
+    </form>
+  </div>
+  
