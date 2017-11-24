@@ -3,10 +3,13 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { HttpModule } from '@angular/http';
 import { FormsModule } from '@angular/forms';
-import { NgRedux, NgReduxModule} from 'ng2-redux';
+// import { NgRedux, NgReduxModule} from 'ng2-redux';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { StoreModule } from '@ngrx/store';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
+import { ProjectsComponent } from './projects/projects.component';
 import { LoginComponent } from './login/login.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -14,6 +17,8 @@ import { AppRoutingModule } from './app.routing.module';
 import { AuthenticationService } from './services/index';
 import { AuthGuard } from './guards/index';
 import { IAppState, rootReducer, INITIAL_STATE} from './store';
+import {projects as ProjectReducer} from './projects.reducer';
+import { ProjectsService } from './projects/projects.service';
 
 @NgModule({
   declarations: [
@@ -21,25 +26,29 @@ import { IAppState, rootReducer, INITIAL_STATE} from './store';
     HomeComponent,
     LoginComponent,
     NavbarComponent,
-    DashboardComponent
+    DashboardComponent,
+    ProjectsComponent
   ],
   imports: [
     BrowserModule,
     HttpModule,
     FormsModule,
     AppRoutingModule,
-    NgReduxModule
+    StoreModule.forRoot({
+      projects: ProjectReducer
+    }),
+    StoreDevtoolsModule.instrument()
   ],
   providers: [
     AuthenticationService,
-    AuthGuard
+    AuthGuard,
+    ProjectsService
   ],
   bootstrap: [AppComponent]
 })
 export class AppModule {
   constructor(
-    ngRedux: NgRedux<IAppState>
   ) {
-    ngRedux.configureStore(rootReducer, INITIAL_STATE);
   }
+
 }

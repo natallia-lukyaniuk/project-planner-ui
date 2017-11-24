@@ -1,24 +1,29 @@
+import {combineReducers} from 'redux';
+
+import {projects as ProjectReducer} from './projects.reducer';
+import { ProjectModel } from './models';
+
 export interface IAppState {
-  project: any;
+  projects: ProjectModel[];
 }
 
-export function rootReducer(state, action) {
-  return state;
-}
+// export function rootReducer(state = {}, action)  {
+//   return combineReducers({
+//     projects: ProjectReducer
+//   });
+// }
+
+export const rootReducer = combineReducers({
+  projects: ProjectReducer
+});
 
 export const INITIAL_STATE: IAppState = {
-  project: {
-    id: 1,
-    members: [1, 2, 4],
-    events: [{
+  projects: [
+    {
       id: 1,
-      title: 'Test',
-      author: 'Jhon Doe'
-    }],
-    tasks: [{
-      id: 1,
-      title: 'Test'
-    }],
-    title: 'Project1 test'
-  }
+      tasks: [1, 2, 2],
+      title: 'Project1 test',
+      avatar: 'fff'
+    }
+  ]
 };

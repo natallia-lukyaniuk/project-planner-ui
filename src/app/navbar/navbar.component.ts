@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { NgRedux } from 'ng2-redux';
+import { Observable } from 'rxjs/Observable';
+import { Subscription } from 'rxjs/Subscription';
+import { Store } from '@ngrx/store';
+
+// import { ProjectsActionCreator } from './projects.action-creator';
 import { IAppState } from '../store';
 
 @Component({
@@ -12,16 +16,11 @@ export class NavbarComponent implements OnInit {
   public defaultImage = 'assets/projectavatar (1).svg';
 
   constructor(
-    private ngRedux: NgRedux<IAppState>
+    private store: Store<IAppState>,
   ) { }
 
   ngOnInit() {
-    this.ngRedux.subscribe(() => {
-      const store = this.ngRedux.getState();
-      this.project = store.project;
-    });
-    const store = this.ngRedux.getState();
-    this.project = store.project;
+    this.project = this.store.select(state => state.projects[0]);
   }
 
 }

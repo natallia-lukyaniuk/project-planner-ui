@@ -41,6 +41,10 @@
         border-bottom: 1px solid #3b84dc;
       }
     }
+
+    &:focus {
+      outline: none;
+    }
   }
 
   &__members {
