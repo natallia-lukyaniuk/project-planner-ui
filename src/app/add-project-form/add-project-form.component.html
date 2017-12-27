@@ -1,0 +1,26 @@
+<div class="add-project">
+  <div class="slds-form slds-form_stacked">
+    <div class="slds-form-element">
+      <label class="slds-form-element__label" for="input-id-01">Title</label>
+      <div class="slds-form-element__control">
+        <input type="text" id="input-id-01" class="slds-input" placeholder="Enter title" />
+      </div>
+    </div>
+    <div class="slds-form-element">
+      <label class="slds-form-element__label" for="input-id-02">Description</label>
+      <div class="slds-form-element__control">
+        <textarea id="input-id-02" class="slds-textarea" placeholder="Description..."></textarea>
+      </div>
+    </div>
+  </div>
+  <button
+    (click)="addProject()"
+    class="slds-button slds-button_neutral login__button">
+    Add
+  </button>
+  <button
+    [routerLink]="['/projects']"
+    class="slds-button slds-button_neutral login__button">
+    Cancel
+  </button>
+</div>

@@ -1,0 +1,32 @@
+<div class="project">
+  <div class="project__header">Project team</div>
+  <div class="members__container">
+    <div class="slds-grid members">
+      <div class="slds-size_8-of-12">Title</div>
+      <div class="slds-size_4-of-12">Actions</div>
+    </div>
+    <div *ngFor="let member of members" 
+      [routerLink]="['/users', member._id]"
+      class="member slds-grid">
+      <div class="slds-size_8-of-12">
+        <img class="member__avatar" src="assets/projectavatar.svg" />
+        <span class="member__name">{{member.firstName}} {{member.lastName}}</span>
+      </div>
+      <div class="slds-size_4-of-12 member__actions">
+        <span (click)="deleteProjectMember(member._id)">
+          <i class="fa fa-times" title="Delete" aria-hidden="true"></i>
+        </span>
+        <span>
+          <i title="Edit" class="fa fa-pencil-square-o" aria-hidden="true"></i>
+        </span>
+      </div>
+    </div>
+    <div class="new-member">
+      <i class="fa fa-user-plus" aria-hidden="true"></i>
+      <span>Add person</span>
+    </div>
+  </div>
+  <button class="slds-button slds-button_neutral project__button" [routerLink]="['/projects', project._id, 'dashboard']">Dashboard</button>
+  <button class="slds-button slds-button_neutral project__button" [routerLink]="['/projects', project._id, 'charts']">Charts</button>
+  <button class="slds-button slds-button_neutral project__button" [routerLink]="['/projects', project._id, 'calendar']">Calendar</button>
+</div>

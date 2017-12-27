@@ -1,6 +1,7 @@
 export interface ProjectModel {
-  id: number;
-  tasks?: number[];
+  _id: string;
+  // to do types
+  tasks?: any[];
   avatar?: string;
   title?: string;
 }

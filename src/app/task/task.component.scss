@@ -1,0 +1,29 @@
+.task {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px;
+  border: 1px solid #ededed;
+  border-radius: 4px;
+  background-color: #fff;
+  margin: 5px;
+  line-height: 1;
+
+  &__number {
+    margin-bottom: 10px;
+    display: block;
+    display: inline-block;
+  }
+
+  &__user-avatar {
+    width: 60px;
+  }
+
+  &__title {
+    // todo: include mixins
+    // @include ellipsis();
+
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+}

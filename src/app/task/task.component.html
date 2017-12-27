@@ -1,0 +1,10 @@
+<div class="task slds-grid">
+  <!-- <i class="fa fa-bug" aria-hidden="true"></i> -->
+  <div class="task__info slds-size_3-of-4">
+      <a [routerLink]="['/tasks', task._id]" class="task__number">{{task.number}}</a>
+      <div class="task__title">{{task.title}}</div>
+  </div>
+  <div class="task__user-avatar slds-size_1-of-4">
+    <img src='assets/projectavatar2.svg'>
+  </div>
+</div>

@@ -1,0 +1,10 @@
+.calendar {
+  margin-top: 108px;
+  padding: 10px;
+
+  .fc-toolbar {
+    .fc-state-active {
+      z-index: 1;
+    }
+  }
+}

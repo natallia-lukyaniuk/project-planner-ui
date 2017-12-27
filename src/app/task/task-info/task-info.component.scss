@@ -1,0 +1,56 @@
+.task {
+  margin-top: 108px;
+  padding: 10px;
+
+  &__info {
+    padding-bottom: 10px;
+    padding-right: 20px;
+  }
+
+  .edit-button {
+    &::before {
+      content: '\f040 ';
+      font-family: 'FontAwesome';
+    }
+  }
+
+  &__actions {
+    margin-bottom: 20px;
+  }
+
+  &__sub-title {
+    width: calc(100% - 20px);
+    text-align: left;
+    border-bottom: 1px solid gainsboro;
+    line-height: 0.1em;
+    margin: 10px 0 20px;
+
+    span {
+      background:#fff;
+      padding-right: 10px;
+      font-weight: bold;
+    }
+  }
+
+  &__comment {
+    border-bottom: 1px solid gainsboro;
+    margin-bottom: 10px;
+
+    &-text {
+      margin: 10px 0;
+    }
+
+    &-user {
+      img {
+        width: 25px;
+        margin-right: 10px;
+      }
+    }
+
+    &-field {
+      width: 100%;
+      height: 100px;
+      resize: none;
+    }
+  }
+}

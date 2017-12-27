@@ -1,0 +1,78 @@
+$border-color: #dcdcdc;
+
+.project {
+  margin-top: 108px;
+  padding: 10px;
+
+  &__button {
+    padding: 5px 10px;
+    font-size: 16px;
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  &__header {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+
+  .members {
+    font-weight: bold;
+    padding: 10px;
+    border-bottom: 1px solid $border-color;
+
+    &__container {
+      margin-bottom: 15px;
+    }
+  }
+
+  .member {
+    padding: 10px;
+    border-bottom: 1px solid lighten($border-color, 5%);
+    transition: background-color 190ms ease-out;
+
+    &__avatar {
+      width: 45px;
+      margin-right: 10px;
+    }
+    
+    &__name {
+      font-size: 17px;
+    }
+
+    &:hover {
+      background-color: darken(#fdfdfd, 2%);
+      cursor: pointer;
+    }
+
+    &__actions {
+      span {
+        &:hover {
+          color: blue;
+        }
+      }
+
+      span {
+        margin-right: 10px;
+      }
+    }
+  }
+
+  .new-member {
+    color: #a7a5a5;
+    padding: 10px;
+    font-size: 16px;
+    display: inline-block;
+
+    &:hover {
+      cursor: pointer;
+      color: darken(#a7a5a5, 5%)
+    }
+
+    .fa {
+      margin-right: 5px;
+    }
+  }
+}

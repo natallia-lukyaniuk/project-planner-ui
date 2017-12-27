@@ -1,0 +1,33 @@
+.user {
+  margin-top: 108px;
+  padding: 20px;
+
+  &__avatar {
+    width: 150px;
+  }
+
+  &__header {
+    font-size: 25px;
+    margin: 10px 0;
+  }
+
+  &__sub-header {
+    font-size: 17px;
+    font-weight: bold;
+    margin: 10px 0;
+  }
+
+  &__name {
+    font-size: 17px;
+  }
+
+  &__info {
+    color: #939292;
+    margin: 10px 0;
+  }
+
+  span {
+    color: black;
+    margin: 10px 0;
+  }
+}

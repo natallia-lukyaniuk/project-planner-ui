@@ -3,21 +3,25 @@
   margin-top: 108px;
 
   &__type {
-    margin: 20px;
+    margin: 0 5px;
+    max-width: calc(30% - 70px);
+  }
+
+  &__item {
+    // background-color: #fff;
   }
 
   &__title {
-    border-bottom: 1px solid #c3c1c1;
+    // border-bottom: 1px solid #c3c1c1;
+    padding: 10px 0;
+    font-size: 17px;
   }
 
   &__info {
-    padding: 15px;
-    background-color: #fffeff;
-    margin: 10px 0;
-  }
-
-  &__total {
-    border-bottom: 1px solid #c3c1c1;
+    padding: 10px 0;
+    background-color: #fafbfc;
+    // margin: 10px 0;
+    height: calc(100% - 45px);
   }
 
   &__new-item {

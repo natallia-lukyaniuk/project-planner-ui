@@ -4,7 +4,7 @@ import { Subscription } from 'rxjs/Subscription';
 import { Store } from '@ngrx/store';
 
 // import { ProjectsActionCreator } from './projects.action-creator';
-import { IAppState } from '../store';
+import { IAppState } from '../shared/store';
 
 @Component({
   selector: 'navbar',
@@ -20,7 +20,9 @@ export class NavbarComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.project = this.store.select(state => state.projects[0]);
+    this.store.select('currentProject').subscribe(project => {
+      this.project = project || '';
+    });
   }
 
 }

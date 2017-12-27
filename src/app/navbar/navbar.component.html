@@ -3,38 +3,14 @@
     <img class="navbar__avatar"
       [src]="project.image || defaultImage">
     <div class="navbar__header">
-      <div class="navbar__title">{{project.title}}</div>
+      <div [routerLink]="['/projects', project._id]" class="navbar__title">{{project.title}}</div>
       <div class="navbar__items">
-          <div
-          routerLink="/projects"
-            class="navbar__item">
-              <i class="fa fa-columns" aria-hidden="true"></i>
-              <span>Projects</span>
-            </div>
-        <div
-          routerLink="/dashboard"
+        <div routerLink="/projects"
           class="navbar__item">
           <i class="fa fa-columns" aria-hidden="true"></i>
-          <span>Dashboard</span>
-        </div>
-        <div
-          routerLink="/charts"
-          class="navbar__item">
-          <i class="fa fa-bar-chart" aria-hidden="true"></i>
-          <span>Charts</span>
+          <span>Projects</span>
         </div>
       </div>
     </div>
   </div>
-  <div class="slds-form-element">
-      <div class="slds-form-element__control">
-        <div class="slds-select_container navbar__members">
-          <select class="slds-select" id="select-01">
-            <option>Option One</option>
-            <option>Option Two</option>
-            <option>Option Three</option>
-          </select>
-        </div>
-      </div>
-    </div>
 </div>

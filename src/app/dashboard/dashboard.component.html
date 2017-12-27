@@ -1,26 +1,40 @@
-<div class="dashboard slds-grid">
-  <div class="slds-col dashboard__type">
-    <div class="dashboard__title">to-do</div>
-    <div class="dashboard__new-item">
-        <i class="fa fa-plus" aria-hidden="true"></i>
-    </div>
-    <div class="dashboard__info">
-      <div class="dashboard__total">
-        <div></div>
-      </div>
-      <div class="dashboard__author">
-        <i class="fa fa-user dashboard__author-icon" aria-hidden="true"></i>
-        
+<div class="dashboard">
+  <dashboard-filters></dashboard-filters>
+  <div class="slds-grid">
+    <div class="slds-col dashboard__type">
+      <div class="dashboard__title">To Do</div>
+      <div class="dashboard__info">
+        <div *ngFor="let task of tasks.toDo" class="dashboard__item">
+          <task [task]="task"></task>
+        </div>
       </div>
     </div>
-  </div>
-  <div class="slds-col dashboard__type">
-    <div class="dashboard__title">to-do</div>
-  </div>
-  <div class="slds-col dashboard__type">
-    <div class="dashboard__title">to-do</div>
-  </div>
-  <div class="slds-col dashboard__type">
-    <div class="dashboard__title">to-do</div>
+    <div class="slds-col dashboard__type">
+      <div class="dashboard__title">In Progress</div>
+      <div class="dashboard__info">
+        <div *ngFor="let task of tasks.inProgress" class="dashboard__item">
+          <task [task]="task"></task>
+        </div>
+      </div>
+    </div>
+    <div class="slds-col dashboard__type">
+      <div class="dashboard__title">Ready for QA</div>
+      <div class="dashboard__info">
+        <div *ngFor="let task of tasks.readyForQA" class="dashboard__item">
+          <task [task]="task"></task>
+        </div>
+      </div>
+    </div>
+    <div class="slds-col dashboard__type">
+      <div class="dashboard__title">Done</div>
+      <!-- <div class="dashboard__new-item">
+          <i class="fa fa-plus" aria-hidden="true"></i>
+      </div> -->
+      <div class="dashboard__info">
+        <div *ngFor="let task of tasks.done" class="dashboard__item">
+          <task [task]="task"></task>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

@@ -1,0 +1,8 @@
+<div class="dashboard-filters">
+  <div class="dashboard-filters__item"
+    [ngClass]="{'dashboard-filters__item--active': true}"
+    *ngFor="let member of members"
+    (click)="filterTasks(member._id)">
+    Only {{member.firstName}} {{member.lastName}}
+  </div>
+</div>
