@@ -11,7 +11,7 @@ export class UserService {
   constructor(private http: Http) { }
 
   getUser(id) {
-    return this.http.get(`http://localhost:8000/users/${id}`)
+    return this.http.get(`http://localhost:3000/users/${id}`)
       .map(res => res.json());
   }
 

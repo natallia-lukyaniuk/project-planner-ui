@@ -20,7 +20,7 @@ export class ProjectsService {
   }
 
   fetchProjects() {
-    return this.http.get(`http://localhost:8000/${this.projectsUrl}`)
+    return this.http.get(`http://localhost:3000/${this.projectsUrl}`)
       .map((res: Response) => {
         return res.json();
       });
@@ -33,20 +33,20 @@ export class ProjectsService {
   }
 
   getProject(projectId) {
-    return this.http.get(`http://localhost:8000/${this.projectsUrl}/${projectId}`)
+    return this.http.get(`http://localhost:3000/${this.projectsUrl}/${projectId}`)
       .map((res: Response) => {
         return res.json();
       });
   }
 
   getMembers(projectId) {
-    return this.http.get(`http://localhost:8000/${this.projectsUrl}/${projectId}/members`)
+    return this.http.get(`http://localhost:3000/${this.projectsUrl}/${projectId}/members`)
       .map(res => res.json());
   }
 
   deleteProjectMember(projectId, memberId) {
     return this.http
-      .delete(`http://localhost:8000/${this.projectsUrl}/${projectId}/delete?memberId=${memberId}`)
+      .delete(`http://localhost:3000/${this.projectsUrl}/${projectId}/delete?memberId=${memberId}`)
       .map(res => res);
   }
 

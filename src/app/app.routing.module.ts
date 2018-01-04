@@ -8,7 +8,7 @@ import { AuthGuard } from './guards/auth.guard';
 import { ProjectComponent } from './project/project.component';
 import { TaskInfoComponent } from './task/task-info/task-info.component';
 import { ChartsComponent } from './charts/charts.component';
-import { MyCalendarComponent } from './calendar/calendar.component';
+// import { MyCalendarComponent } from './calendar/calendar.component';
 import { AddProjectFormComponent } from './add-project-form/add-project-form.component';
 import { UserInfoComponent } from './user-info/user-info.component';
 
@@ -44,18 +44,19 @@ const routes: Routes = [
   {
     path: 'projects',
     component: ProjectsComponent,
-    pathMatch: 'full'
+    pathMatch: 'full',
+    canActivate: [AuthGuard]
   },
   {
     path: 'projects/:id/charts',
     component: ChartsComponent,
     pathMatch: 'full'
   },
-  {
-    path: 'projects/:id/calendar',
-    component: MyCalendarComponent,
-    pathMatch: 'full'
-  },
+  // {
+  //   path: 'projects/:id/calendar',
+  //   component: MyCalendarComponent,
+  //   pathMatch: 'full'
+  // },
   {
     path: 'tasks/:id',
     component: TaskInfoComponent,

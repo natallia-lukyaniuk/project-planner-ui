@@ -8,7 +8,7 @@ import { StoreModule } from '@ngrx/store';
 import { NvD3Module } from 'ng2-nvd3';
 import 'd3';
 import 'nvd3';
-import { FullCalendarModule } from 'ng-fullcalendar';
+// import { FullCalendarModule } from 'ng-fullcalendar';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -29,7 +29,7 @@ import { TaskInfoComponent } from './task/task-info/task-info.component';
 import { members as projectMembers } from './shared/members/members.reducer';
 import { ChartsComponent } from './charts/charts.component';
 import { DashboardFiltersComponent } from './dashboard-filters/dashboard-filters.component';
-import { MyCalendarComponent } from './calendar/calendar.component';
+// import { MyCalendarComponent } from './calendar/calendar.component';
 import { AddProjectFormComponent } from './add-project-form/add-project-form.component';
 import { UserInfoComponent } from './user-info/user-info.component';
 import { UserService } from './user-info/user.service';
@@ -47,7 +47,7 @@ import { UserService } from './user-info/user.service';
     TaskInfoComponent,
     ChartsComponent,
     DashboardFiltersComponent,
-    MyCalendarComponent,
+    // MyCalendarComponent,
     AddProjectFormComponent,
     UserInfoComponent
   ],
@@ -63,7 +63,7 @@ import { UserService } from './user-info/user.service';
       projectMembers
     }),
     StoreDevtoolsModule.instrument(),
-    FullCalendarModule
+    // FullCalendarModule
   ],
   providers: [
     AuthenticationService,

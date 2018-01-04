@@ -12,7 +12,7 @@ export class TaskService {
   constructor(private http: Http) { }
 
   getTask(taskId) {
-    return this.http.get(`http://localhost:8000/${this.taskUrl}/${taskId}`)
+    return this.http.get(`http://localhost:3000/${this.taskUrl}/${taskId}`)
       .map(res => res.json());
   }
 

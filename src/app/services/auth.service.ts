@@ -14,35 +14,40 @@ export class AuthenticationService {
     }
 
     public login(name: string, password: string): Observable<boolean> {
-        // return this.http
-        //   .post('/api/authenticate', JSON.stringify({ name, password }))
-        //     .map((response: Response) => {
-        //         // login successful if there's a jwt token in the response
-        //         const token = response.json() && response.json().token;
-        //         if (token) {
-        //             // set token property
-        //             this.token = token;
+        const user = {
+            login: name,
+            password
+        };
+        console.log(JSON.stringify(user));
+        return this.http
+          .post('http://localhost:3000/api/authenticate', JSON.stringify({
+                body: user,
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+          }))
+            .map((response: Response) => {
+                // login successful if there's a jwt token in the response
+                const token = response.json() && response.json().token;
+                if (token) {
+                    // set token property
+                    this.token = token;
 
-        //             // store username and jwt token in local storage to keep user logged in between page refreshes
-        //             localStorage
-        //               .setItem(
-        //                 'currentUser',
-        //                 JSON.stringify({ name, token })
-        //               );
+                    // store username and jwt token in local storage to keep user logged in between page refreshes
+                    localStorage
+                      .setItem(
+                        'currentUser',
+                        JSON.stringify({ name, token })
+                      );
 
-        //             // return true to indicate successful login
-        //             return true;
-        //         } else {
-        //             // return false to indicate failed login
-        //             return false;
-        //         }
-        //     });
-        localStorage
-          .setItem(
-            'currentUser',
-            JSON.stringify({ name })
-          );
-        return Observable.of(true);
+                    // return true to indicate successful login
+                    return true;
+                } else {
+                    // return false to indicate failed login
+                    return false;
+                }
+            });
     }
 
     public logout(): void {

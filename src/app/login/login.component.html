@@ -4,18 +4,16 @@
       name="form"
       (ngSubmit)="f.form.valid && login()">
       <input type="text"
-        name=""
-        id=""
         placeholder="Email"
         class="login__input"
+        name="username"
         [(ngModel)]="user.name">
       <input type="password"
-        name=""
-        id=""
         placeholder="password"
         class="login__input"
+        name="password"
         [(ngModel)]="user.password">
-      <button [disabled]="loading"
+      <button
         class="slds-button slds-button_neutral login__button">
         Войти
       </button>
