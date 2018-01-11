@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { HttpModule } from '@angular/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { StoreModule } from '@ngrx/store';
@@ -33,6 +34,7 @@ import { DashboardFiltersComponent } from './dashboard-filters/dashboard-filters
 import { AddProjectFormComponent } from './add-project-form/add-project-form.component';
 import { UserInfoComponent } from './user-info/user-info.component';
 import { UserService } from './user-info/user.service';
+import { TokenInterceptor } from './services/token.interceptor';
 
 @NgModule({
   declarations: [
@@ -54,6 +56,7 @@ import { UserService } from './user-info/user.service';
   imports: [
     BrowserModule,
     HttpModule,
+    HttpClientModule,
     FormsModule,
     AppRoutingModule,
     NvD3Module,
@@ -69,7 +72,12 @@ import { UserService } from './user-info/user.service';
     AuthenticationService,
     AuthGuard,
     ProjectsService,
-    UserService
+    UserService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptor,
+      multi: true
+    }
   ],
   bootstrap: [AppComponent]
 })
