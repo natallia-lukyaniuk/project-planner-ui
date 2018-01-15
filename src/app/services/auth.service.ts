@@ -33,7 +33,6 @@ export class AuthenticationService {
           .post('http://localhost:3000/api/authenticate', JSON.stringify(user))
             .map((response: UserResponse) => {
                 // login successful if there's a jwt token in the response
-                console.log(response);
                 const token = response.token;
                 if (token) {
                     // set token property

@@ -17,7 +17,6 @@ export class ChartsComponent implements OnInit {
 
   ngOnInit() {
     this.options = chartOptions;
-    console.log(this.options);
     this.options.chart.type = chartTypes[2];
 
     this.data = [

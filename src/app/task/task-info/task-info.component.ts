@@ -38,7 +38,6 @@ export class TaskInfoComponent implements OnInit {
     const userId = this.task.user._id;
     delete this.task.user;
     const payload = {...this.task, status, userId};
-    console.log(status, payload);
     this.store.dispatch({type: 'CHANGE_TASK-STATUS', payload});
     this.router.navigate(['/projects', this.task.projectId, 'dashboard']);
   }

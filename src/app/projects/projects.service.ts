@@ -21,7 +21,7 @@ export class ProjectsService {
   }
 
   fetchProjects() {
-    return this.http.get(`http://localhost:3000/api/projects`)
+    return this.http.get(`http://localhost:3000/${this.projectsUrl}`)
       .map((res: Project[]) => {
         return res;
       });

@@ -8,7 +8,7 @@ import 'rxjs/add/operator/catch';
 
 @Injectable()
 export class TaskService {
-  private taskUrl = 'tasks';
+  private taskUrl = 'api/tasks';
 
   constructor(private http: HttpClient) { }
 

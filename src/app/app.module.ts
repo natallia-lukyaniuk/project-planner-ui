@@ -35,6 +35,7 @@ import { AddProjectFormComponent } from './add-project-form/add-project-form.com
 import { UserInfoComponent } from './user-info/user-info.component';
 import { UserService } from './user-info/user.service';
 import { TokenInterceptor } from './services/token.interceptor';
+import { ProjectsResolver } from './guards/projects-resolver';
 
 @NgModule({
   declarations: [
@@ -72,6 +73,7 @@ import { TokenInterceptor } from './services/token.interceptor';
     AuthenticationService,
     AuthGuard,
     ProjectsService,
+    ProjectsResolver,
     UserService,
     {
       provide: HTTP_INTERCEPTORS,

@@ -44,7 +44,6 @@ export class ProjectComponent implements OnInit {
           this.projectsService.getMembers(params.id)
             .subscribe(members => {
               this.members = members;
-              console.log(members);
               this.store.dispatch({type: 'FETCH_MEMBERS', payload: members});
             });
         }
@@ -55,7 +54,6 @@ export class ProjectComponent implements OnInit {
   deleteProjectMember(id) {
     this.projectsService.deleteProjectMember(this.project._id, id)
       .subscribe(res => {
-        console.log(res);
         this.store.dispatch({type: 'DELETE_PROJECT_MEMBER', payload: id});
       });
   }
