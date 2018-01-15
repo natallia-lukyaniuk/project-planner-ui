@@ -9,8 +9,9 @@ export class TokenInterceptor implements HttpInterceptor {
   intercept (req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     const currentUser = JSON.parse(localStorage.getItem('currentUser'));
     const token = currentUser && currentUser.token;
-
+    debugger;
+    const duplicate = req.clone({ params: req.params.set('token', token) });
     const changedReq = req.clone({headers: req.headers.set('x-access-token', 'token')});
-    return next.handle(changedReq);
+    return next.handle(duplicate);
   }
 }

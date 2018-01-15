@@ -55,7 +55,6 @@ export class ProjectsComponent implements OnInit {
     // this.projectsService.getProject(project._id)
     //   .subscribe((proj) => {
     //     this.store.dispatch({type: 'SELECT_PROJECT', payload: proj});
-        
     //   });
   }
 }
