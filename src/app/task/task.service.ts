@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Http, Response } from '@angular/http';
-import { HttpClient } from '@angular/common/http';
+import { Http, Response, Headers, RequestOptions } from '@angular/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
@@ -14,6 +14,14 @@ export class TaskService {
 
   getTask(taskId) {
     return this.http.get(`http://localhost:3000/${this.taskUrl}/${taskId}`)
+      .map(res => res);
+  }
+
+  updateTask(task) {
+    const headers = new HttpHeaders();
+    headers.append('Content-Type', 'application/x-www-form-urlencoded');
+    debugger;
+    return this.http.put(`localhost:3000/${this.taskUrl}/${task._id}`, JSON.stringify(task), {headers: headers})
       .map(res => res);
   }
 }

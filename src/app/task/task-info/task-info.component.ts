@@ -35,11 +35,15 @@ export class TaskInfoComponent implements OnInit {
   }
 
   changeStatus(status) {
+    debugger;
     const userId = this.task.user._id;
     delete this.task.user;
     const payload = {...this.task, status, userId};
-    this.store.dispatch({type: 'CHANGE_TASK-STATUS', payload});
-    this.router.navigate(['/projects', this.task.projectId, 'dashboard']);
+    this.taskService.updateTask(payload)
+      .subscribe(res => {
+        this.store.dispatch({type: 'CHANGE_TASK-STATUS', payload});
+        this.router.navigate(['/projects', this.task.projectId, 'dashboard']);
+      });
   }
 
 }

@@ -28,12 +28,11 @@ export class ProjectsComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log('init projects');
     this.store.select('projects').subscribe(projects => {
-      console.log(projects);
       if (_.isEmpty(projects)) {
         this.projectsService.fetchProjects()
           .map(payload => {
+            debugger;
             this.projects = payload;
             return {type: 'FETCH_PROJECTS', payload};
           })

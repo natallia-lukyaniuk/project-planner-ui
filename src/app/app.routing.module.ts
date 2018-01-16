@@ -20,26 +20,31 @@ const routes: Routes = [
   {
     path: '',
     redirectTo: '/projects',
-    pathMatch: 'full'
+    pathMatch: 'full',
+    canActivate: [AuthGuard]
   },
   {
     path: 'projects/add',
     component: AddProjectFormComponent,
-    pathMatch: 'full'
+    pathMatch: 'full',
+    canActivate: [AuthGuard]
   },
   {
     path: 'projects/:id',
     component: ProjectComponent,
-    pathMatch: 'full'
+    pathMatch: 'full',
+    canActivate: [AuthGuard]
   },
   {
     path: 'users/:id',
-    component: UserInfoComponent
+    component: UserInfoComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'projects/:id/dashboard',
     component: DashboardComponent,
-    pathMatch: 'full'
+    pathMatch: 'full',
+    canActivate: [AuthGuard]
   },
   {
     path: 'projects',
@@ -50,7 +55,8 @@ const routes: Routes = [
   {
     path: 'projects/:id/charts',
     component: ChartsComponent,
-    pathMatch: 'full'
+    pathMatch: 'full',
+    canActivate: [AuthGuard]
   },
   // {
   //   path: 'projects/:id/calendar',
@@ -60,7 +66,8 @@ const routes: Routes = [
   {
     path: 'tasks/:id',
     component: TaskInfoComponent,
-    pathMatch: 'full'
+    pathMatch: 'full',
+    canActivate: [AuthGuard]
   }
 ];
 
