@@ -109,7 +109,6 @@ export class AuthenticationService {
                 login: name,
                 password
             };
-            debugger;
             return this.http
                 .post('http://localhost:3000/api/authenticate', JSON.stringify(user))
                 .map(res => res);

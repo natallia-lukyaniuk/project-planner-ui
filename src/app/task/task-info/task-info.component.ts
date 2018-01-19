@@ -21,6 +21,16 @@ export class TaskInfoComponent implements OnInit {
     private store: Store<IAppState>,
     private router: Router
   ) {
+    // this.taskTypes = TaskTypes;
+    // this.route.params.subscribe((params) => {
+    //   this.taskService.getTask(params.id)
+    //     .subscribe(task => {
+    //       this.task = task;
+    //   });
+    // });
+  }
+
+  ngOnInit() {
     this.taskTypes = TaskTypes;
     this.route.params.subscribe((params) => {
       this.taskService.getTask(params.id)
@@ -30,12 +40,7 @@ export class TaskInfoComponent implements OnInit {
     });
   }
 
-  ngOnInit() {
-
-  }
-
   changeStatus(status) {
-    debugger;
     const userId = this.task.user._id;
     delete this.task.user;
     const payload = {...this.task, status, userId};

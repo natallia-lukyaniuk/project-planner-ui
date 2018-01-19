@@ -6,13 +6,13 @@ import { chartTypes } from './chartTypes';
 @Component({
   selector: 'charts',
   templateUrl: './charts.component.html',
-  styleUrls: ['./charts.component.scss', '../../../node_modules/nvd3/build/nv.d3.css'],
+  styleUrls: ['./charts.component.scss', '../../../../node_modules/nvd3/build/nv.d3.css'],
   encapsulation: ViewEncapsulation.None
 })
 export class ChartsComponent implements OnInit {
   public options;
   public data;
-  public type: string = 'simpleLine';
+  public type = 'simpleLine';
   public types: string[] = chartTypes;
 
   ngOnInit() {

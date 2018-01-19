@@ -9,8 +9,7 @@ import { IAppState } from '../shared/store';
 
 @Injectable()
 
-export class ProjectsResolver implements Resolve<Project> {
-    private projects: Project[];
+export class ProjectsResolver implements Resolve<Observable<Project>> {
 
     constructor(
         private projectsService: ProjectsService,
@@ -20,22 +19,16 @@ export class ProjectsResolver implements Resolve<Project> {
     resolve (
         route: ActivatedRouteSnapshot,
         state: RouterStateSnapshot
-    ): Observable<any>|Promise<any>|any {
-        this.store.select('projects').subscribe(projects => {
-            if (_.isEmpty(projects)) {
-                this.projectsService.fetchProjects()
-                .map(payload => {
-                    this.projects = payload;
-                    return {type: 'FETCH_PROJECTS', payload};
-                })
-                .subscribe(action => {
-                    this.store.dispatch(action);
-                    return this.projects;
-                });
-            } else {
-                this.projects = projects;
-                return this.projects;
-            }
-        });
+    ): any {
+        return this.projectsService.fetchProjects();
+        // return this.store.select('projects').subscribe(projects => {
+        //     if (_.isEmpty(projects)) {
+        //         debugger;
+        //         return this.projectsService.fetchProjects();
+        //     } else {
+        //         debugger;
+        //         return projects;
+        //     }
+        // });
     }
 }

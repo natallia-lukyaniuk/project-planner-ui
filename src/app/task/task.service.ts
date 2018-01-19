@@ -18,10 +18,13 @@ export class TaskService {
   }
 
   updateTask(task) {
-    const headers = new HttpHeaders();
-    headers.append('Content-Type', 'application/x-www-form-urlencoded');
-    debugger;
-    return this.http.put(`localhost:3000/${this.taskUrl}/${task._id}`, JSON.stringify(task), {headers: headers})
-      .map(res => res);
+    const taskObject = JSON.stringify(task);
+    return this.http.put(
+      `http://localhost:3000/${this.taskUrl}/${task._id}`,
+      taskObject
+    )
+      .map(res => {
+        return res;
+      });
   }
 }

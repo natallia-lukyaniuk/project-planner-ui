@@ -21,7 +21,6 @@ export class NavbarComponent implements OnInit {
 
   ngOnInit() {
     this.store.select('currentProject').subscribe(project => {
-      debugger;
       this.project = project || '';
     });
   }

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { IAppState } from '../shared/store';
+import { IAppState } from '../../shared/store';
 import { Store } from '@ngrx/store';
 import { ActivatedRoute, Router } from '@angular/router';
 import _ from 'lodash';
@@ -17,7 +17,7 @@ export class AddProjectFormComponent implements OnInit {
     private router: Router
   ) { }
 
-  ngOnInit() { 
+  ngOnInit() {
 
   }
 

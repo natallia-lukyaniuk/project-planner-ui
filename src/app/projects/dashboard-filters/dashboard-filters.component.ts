@@ -3,8 +3,8 @@ import { Store } from '@ngrx/store';
 import { ActivatedRoute } from '@angular/router';
 import _ from 'lodash';
 
-import { IAppState } from '../shared/store';
-import { ProjectsService } from '../projects/projects.service';
+import { IAppState } from '../../shared/store';
+import { ProjectsService } from '..//projects.service';
 
 @Component({
   selector: 'dashboard-filters',

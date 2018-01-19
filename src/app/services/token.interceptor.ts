@@ -10,8 +10,11 @@ export class TokenInterceptor implements HttpInterceptor {
     const currentUser = localStorage.getItem(TOKEN_NAME);
     const token = currentUser;
     const duplicate = req.clone({ params: req.params.set('token', token) });
-    const changedReq = req.clone({headers: req.headers.set('x-access-token', 'token')});
-    return next.handle(duplicate);
+    const changedReq = req.clone({
+      params: req.params.set('token', token),
+      headers: req.headers.set('Content-Type', 'application/json')
+    });
+    return next.handle(changedReq);
   }
 
   // constructor () {

@@ -1,0 +1,19 @@
+<div class="projects">
+  <div class="slds-grid projects__header">
+    <div class="slds-size_1-of-12"></div>
+    <div class="slds-size_5-of-12">Project</div>
+    <div class="slds-size_5-of-12">Name</div>
+  </div>
+  <div *ngFor="let project of projects" class="project__item slds-grid" (click)="selectProject(project)">
+    <div class="slds-size_1-of-12">
+      <img class="project__image"
+        [src]="defaultImage" />
+    </div>
+    <div class="slds-size_5-of-12 project__title">{{project.title}}</div>
+  </div>
+  <div class="new-project"
+    [routerLink]="['/projects', 'add']">
+    <i class="fa fa-plus" aria-hidden="true"></i>
+    <span>Add project</span>
+  </div>
+</div>
