@@ -34,7 +34,6 @@ export class ProjectsService {
   }
 
   getProject(projectId) {
-    debugger;
     return this.http.get(`http://localhost:3000/${this.projectsUrl}/${projectId}`)
       .map((res: Project) => {
         return res;
