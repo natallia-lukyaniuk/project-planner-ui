@@ -1,23 +1,25 @@
 <div class="task">
   <div class="task__actions">
       <button class="slds-button slds-button_neutral project__button edit-button">Edit</button>
-      <button class="slds-button slds-button_neutral project__button"
-        (click)="changeStatus('2')"
-        *ngIf="task.status === '1'">
-        Begin Work</button>
-      <button class="slds-button slds-button_neutral project__button"
-        (click)="changeStatus('3')"
-        *ngIf="task.status === '2'">
-        Resolve</button>
-      <button class="slds-button slds-button_neutral project__button"
-        (click)="changeStatus('4')"
-        *ngIf="task.status === '3'">
-        Test Completed</button>
-      <button class="slds-button slds-button_neutral project__button"
-        (click)="changeStatus('1')"
-        *ngIf="task.status === '4'">
-        Re-open</button>
-        <button class="slds-button slds-button_neutral project__button">Close</button>
+      <div (click)="changeStatus($event)">
+        <button class="slds-button slds-button_neutral project__button"
+          value="2"
+          *ngIf="task.status === '1'">
+          Begin Work</button>
+        <button class="slds-button slds-button_neutral project__button"
+          value="3"
+          *ngIf="task.status === '2'">
+          Resolve</button>
+        <button class="slds-button slds-button_neutral project__button"
+          value="4"
+          *ngIf="task.status === '3'">
+          Test Completed</button>
+        <button class="slds-button slds-button_neutral project__button"
+          value="1"
+          *ngIf="task.status === '4'">
+          Re-open</button>
+          <button class="slds-button slds-button_neutral project__button">Close</button>
+      </div>
       </div>
       <div class="slds-grid slds-wrap">
         <div class=" slds-size_8-of-12">

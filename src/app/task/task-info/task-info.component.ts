@@ -40,9 +40,10 @@ export class TaskInfoComponent implements OnInit {
     });
   }
 
-  changeStatus(status) {
+  changeStatus(event) {
     const userId = this.task.user._id;
     delete this.task.user;
+    const status = Number(event.target.value);
     const payload = {...this.task, status, userId};
     this.taskService.updateTask(payload)
       .subscribe(res => {
