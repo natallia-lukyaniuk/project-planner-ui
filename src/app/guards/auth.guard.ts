@@ -11,7 +11,6 @@ export class AuthGuard implements CanActivate, CanActivateChild {
     ) { }
 
     public canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
-        debugger;
         if (!this.authService.isTokenExpired()) {
             return true;
         }
@@ -21,7 +20,6 @@ export class AuthGuard implements CanActivate, CanActivateChild {
     }
 
     public canActivateChild(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
-        debugger;
         if (!this.authService.isTokenExpired()) {
             return true;
         }
