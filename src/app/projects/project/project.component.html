@@ -5,7 +5,7 @@
       <div class="slds-size_8-of-12">Title</div>
       <div class="slds-size_4-of-12">Actions</div>
     </div>
-    <div *ngFor="let member of members" 
+    <div *ngFor="let member of members"
       [routerLink]="['/users', member._id]"
       class="member slds-grid">
       <div class="slds-size_8-of-12">

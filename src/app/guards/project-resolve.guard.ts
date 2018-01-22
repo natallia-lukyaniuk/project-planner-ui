@@ -5,13 +5,13 @@ import { ProjectModel as Project } from '../shared/projects/project.model';
 import { ProjectsService } from '../projects/projects.service';
 
 @Injectable()
-export class ProjectResolveGuard implements Resolve<Project> {
+export class ProjectResolveGuard implements Resolve<any> {
   constructor(
     private projectsService: ProjectsService,
-    private router: Router
+    private router: Router,
   ) {}
 
-  resolve(route: ActivatedRouteSnapshot): Observable<Project> {
+  resolve(route: ActivatedRouteSnapshot): Observable<any> {
     const id = route.params['id'];
 
     return this.projectsService.getProject(id);

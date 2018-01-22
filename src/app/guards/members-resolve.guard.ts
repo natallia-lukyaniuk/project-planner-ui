@@ -6,15 +6,15 @@ import { ProjectsService } from '../projects/projects.service';
 import { Member } from '../shared/members/member.model';
 
 @Injectable()
-export class MemberResolveGuard implements Resolve<Member[]> {
+export class MemberResolveGuard implements Resolve<any> {
   constructor(
     private projectsService: ProjectsService,
-    private router: Router
+    private router: Router,
   ) {}
 
   resolve(
       route: ActivatedRouteSnapshot,
-      state: RouterStateSnapshot
+      state: RouterStateSnapshot,
     ): Observable<Member[]> {
     const id = route.params['id'];
 

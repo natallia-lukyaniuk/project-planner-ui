@@ -2,6 +2,11 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { NvD3Module } from 'ng2-nvd3';
+import 'd3';
+import 'nvd3';
+import { FullCalendarModule } from 'ng-fullcalendar';
+
 import { ProjectsRoutingModule, projectsRouterComponents } from './projects.routing.module';
 import {
     AddProjectFormComponent,
@@ -10,7 +15,7 @@ import {
     DashboardFiltersComponent,
     ProjectComponent,
     ProjectsComponent,
-    ProjectsService
+    ProjectsService,
 } from './';
 import { AuthGuard } from '../guards/auth.guard';
 import { TokenInterceptor } from '../services/token.interceptor';
@@ -19,22 +24,25 @@ import { TokenInterceptor } from '../services/token.interceptor';
   imports: [
     CommonModule,
     ProjectsRoutingModule,
-    FormsModule
+    FormsModule,
+    NvD3Module,
+    FullCalendarModule,
   ],
   declarations: [
     projectsRouterComponents,
-    DashboardFiltersComponent
+    DashboardFiltersComponent,
   ],
   providers: [
       ProjectsService,
       AuthGuard,
       HttpClientModule,
-      {
-        provide: HTTP_INTERCEPTORS,
-        useClass: TokenInterceptor,
-        multi: true
-      }
-    ]
+      NvD3Module,
+      // {
+      //   provide: HTTP_INTERCEPTORS,
+      //   useClass: TokenInterceptor,
+      //   multi: true,
+      // },
+    ],
 })
 export class ProjectsModule {
   constructor( ) { }

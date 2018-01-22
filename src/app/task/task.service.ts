@@ -21,7 +21,7 @@ export class TaskService {
     const taskObject = JSON.stringify(task);
     return this.http.put(
       `http://localhost:3000/${this.taskUrl}/${task._id}`,
-      taskObject
+      taskObject,
     )
       .map(res => {
         return res;

@@ -10,6 +10,7 @@ import 'rxjs/add/operator/catch';
 import _ from 'lodash';
 import { ProjectModel as Project } from '../shared/projects/project.model';
 import { IAppState } from '../shared/store';
+import { Member } from '../shared/members/member.model';
 
 @Injectable()
 export class ProjectsService {
@@ -19,7 +20,7 @@ export class ProjectsService {
   constructor(
     private http: HttpClient,
     private store: Store<IAppState>,
-    private router: Router
+    private router: Router,
   ) {
   }
 
@@ -33,22 +34,17 @@ export class ProjectsService {
       });
   }
 
-  getProject(projectId) {
-    return this.http.get(`http://localhost:3000/${this.projectsUrl}/${projectId}`)
-      .map((res: Project) => {
-        return res;
-      });
+  getProject(projectId): any {
+    return this.http.get(`http://localhost:3000/${this.projectsUrl}/${projectId}`);
   }
 
-  getMembers(projectId) {
-    return this.http.get(`http://localhost:3000/${this.projectsUrl}/${projectId}/members`)
-      .map((res: any[]) => res);
+  getMembers(projectId): Observable<any> {
+    return this.http.get(`http://localhost:3000/${this.projectsUrl}/${projectId}/members`);
   }
 
   deleteProjectMember(projectId, memberId) {
     return this.http
-      .delete(`http://localhost:3000/${this.projectsUrl}/${projectId}/delete?memberId=${memberId}`)
-      .map((res: any[]) => res);
+      .delete(`http://localhost:3000/${this.projectsUrl}/${projectId}/delete?memberId=${memberId}`);
   }
 
 }

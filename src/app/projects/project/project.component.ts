@@ -10,7 +10,7 @@ import _ from 'lodash';
 @Component({
   selector: 'project',
   templateUrl: './project.component.html',
-  styleUrls: ['./project.component.scss']
+  styleUrls: ['./project.component.scss'],
 })
 export class ProjectComponent implements OnInit {
   // todo: check types
@@ -21,7 +21,7 @@ export class ProjectComponent implements OnInit {
     public router: Router,
     public route: ActivatedRoute,
     private projectsService: ProjectsService,
-    private store: Store<IAppState>
+    private store: Store<IAppState>,
   ) { }
 
   ngOnInit() {

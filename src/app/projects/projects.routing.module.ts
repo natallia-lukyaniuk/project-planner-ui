@@ -8,7 +8,9 @@ import {
     ProjectComponent,
     ProjectsListComponent,
     ProjectsService,
-    ProjectsComponent
+    ProjectsComponent,
+    ChartsComponent,
+    MyCalendarComponent,
 } from './';
 import { TaskComponent } from '../task/task.component';
 import { AuthGuard } from '../guards/auth.guard';
@@ -29,12 +31,12 @@ const routes: Routes = [
             path: '',
             component: ProjectsListComponent,
             resolve: {
-                projects: ProjectsResolver
+                projects: ProjectsResolver,
             },
         },
         {
             path: 'add',
-            component: AddProjectFormComponent
+            component: AddProjectFormComponent,
         },
         {
             path: ':id',
@@ -42,19 +44,29 @@ const routes: Routes = [
             pathMatch: 'full',
             resolve: {
                 project: ProjectResolveGuard,
-                members: MemberResolveGuard
-            }
+                members: MemberResolveGuard,
+            },
         // canDeactivate: [CanDeactivateGuard],
         // resolve: {
         //   user: UserResolveGuard
         // }
       },
-    {
-        path: ':id/dashboard',
-        component: DashboardComponent,
-        pathMatch: 'full',
-    },
-    ]
+        {
+            path: ':id/dashboard',
+            component: DashboardComponent,
+            pathMatch: 'full',
+        },
+        {
+            path: ':id/charts',
+            component: ChartsComponent,
+            pathMatch: 'full',
+        },
+        {
+            path: ':id/calendar',
+            component: MyCalendarComponent,
+            pathMatch: 'full',
+        },
+    ],
   },
 ];
 
@@ -65,20 +77,22 @@ export let projectsRouterComponents = [
     ProjectComponent,
     ProjectsComponent,
     ProjectsListComponent,
-    TaskComponent
+    TaskComponent,
+    ChartsComponent,
+    MyCalendarComponent,
 ];
 
 @NgModule({
   imports: [
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
   ],
   providers: [
     ProjectsService,
     AuthGuard,
     ProjectsResolver,
     ProjectResolveGuard,
-    MemberResolveGuard
+    MemberResolveGuard,
   ],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
 export class ProjectsRoutingModule { }

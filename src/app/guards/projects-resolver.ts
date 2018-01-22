@@ -18,7 +18,7 @@ export class ProjectsResolver implements Resolve<Observable<Project>> {
 
     resolve (
         route: ActivatedRouteSnapshot,
-        state: RouterStateSnapshot
+        state: RouterStateSnapshot,
     ): any {
         return this.projectsService.fetchProjects();
         // return this.store.select('projects').subscribe(projects => {

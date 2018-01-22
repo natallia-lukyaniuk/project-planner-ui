@@ -11,16 +11,16 @@ import { TasksStatuses } from '../../shared/tasks/tasks-statuses';
 @Component({
   selector: 'dashboard',
   templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.scss']
+  styleUrls: ['./dashboard.component.scss'],
 })
 export class DashboardComponent implements OnInit {
   public project: Project;
-  public tasks: any = {};
+  public tasks: any;
 
   constructor(
     private store: Store<IAppState>,
     private projectsService: ProjectsService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
   ) {
   }
 
@@ -31,9 +31,11 @@ export class DashboardComponent implements OnInit {
           this.project = project;
           this.tasks = {
             toDo: this.project.tasks.filter(task => Number(task.status) === TasksStatuses.toDo),
-            inProgress: this.project.tasks.filter(task => Number(task.status) === TasksStatuses.inProgress),
-            readyForQA: this.project.tasks.filter(task => Number(task.status) === TasksStatuses.readyForQA),
-            done: this.project.tasks.filter(task => Number(task.status) === TasksStatuses.done)
+            inProgress:
+              this.project.tasks.filter(task => Number(task.status) === TasksStatuses.inProgress),
+            readyForQA:
+              this.project.tasks.filter(task => Number(task.status) === TasksStatuses.readyForQA),
+            done: this.project.tasks.filter(task => Number(task.status) === TasksStatuses.done),
           };
         } else {
           this.projectsService.getProject(params.id)
@@ -42,9 +44,13 @@ export class DashboardComponent implements OnInit {
               this.store.dispatch({type: 'SELECT_PROJECT', payload: project});
               this.tasks = {
                 toDo: this.project.tasks.filter(task => Number(task.status) === TasksStatuses.toDo),
-                inProgress: this.project.tasks.filter(task => Number(task.status) === TasksStatuses.inProgress),
-                readyForQA: this.project.tasks.filter(task => Number(task.status) === TasksStatuses.readyForQA),
-                done: this.project.tasks.filter(task => Number(task.status) === TasksStatuses.done)
+                inProgress:
+                  this.project.tasks
+                    .filter(task => Number(task.status) === TasksStatuses.inProgress),
+                readyForQA:
+                  this.project.tasks
+                    .filter(task => Number(task.status) === TasksStatuses.readyForQA),
+                done: this.project.tasks.filter(task => Number(task.status) === TasksStatuses.done),
               };
             });
         }

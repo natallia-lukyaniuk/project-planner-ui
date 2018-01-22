@@ -9,7 +9,7 @@ import { IAppState } from '../../shared/store';
   selector: 'task-info',
   templateUrl: './task-info.component.html',
   styleUrls: ['./task-info.component.scss'],
-  providers: [TaskService]
+  providers: [TaskService],
 })
 export class TaskInfoComponent implements OnInit {
   public task: any;
@@ -19,7 +19,7 @@ export class TaskInfoComponent implements OnInit {
     private taskService: TaskService,
     private route: ActivatedRoute,
     private store: Store<IAppState>,
-    private router: Router
+    private router: Router,
   ) {
     // this.taskTypes = TaskTypes;
     // this.route.params.subscribe((params) => {

@@ -17,7 +17,7 @@ export class DashboardFiltersComponent implements OnInit {
   constructor(
     private store: Store<IAppState>,
     private route: ActivatedRoute,
-    private projectsService: ProjectsService
+    private projectsService: ProjectsService,
   ) { }
 
   ngOnInit() {

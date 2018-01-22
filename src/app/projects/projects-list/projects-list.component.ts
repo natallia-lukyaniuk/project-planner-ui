@@ -13,7 +13,7 @@ import { IAppState } from '../../shared/store';
 @Component({
   selector: 'projects-list',
   templateUrl: './projects-list.component.html',
-  styleUrls: ['./projects-list.component.scss']
+  styleUrls: ['./projects-list.component.scss'],
 })
 export class ProjectsListComponent implements OnInit {
   public projects: Array<Project> = [];
@@ -24,7 +24,7 @@ export class ProjectsListComponent implements OnInit {
     private projectsService: ProjectsService,
     private store: Store<IAppState>,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
   ) {
   }
 

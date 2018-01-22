@@ -1,4 +1,5 @@
-<div class="navbar">
+<div
+  class="navbar">
   <div style="display: flex">
     <img class="navbar__avatar"
       [src]="project.image || defaultImage">
@@ -13,4 +14,7 @@
       </div>
     </div>
   </div>
+  <button
+  (click)="logout()"
+    class="slds-button slds-button_neutral">Logout</button>
 </div>

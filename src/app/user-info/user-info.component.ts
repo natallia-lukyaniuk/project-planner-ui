@@ -12,7 +12,7 @@ export class UserInfoComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private userService: UserService
+    private userService: UserService,
   ) { }
 
   ngOnInit() {
@@ -23,5 +23,4 @@ export class UserInfoComponent implements OnInit {
         });
     });
   }
-
 }

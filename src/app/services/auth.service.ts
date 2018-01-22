@@ -64,7 +64,7 @@ export class AuthenticationService {
     // }
 
         constructor (
-            private http: HttpClient
+            private http: HttpClient,
         ) {}
 
         getToken() {
@@ -107,11 +107,13 @@ export class AuthenticationService {
         public login(name: string, password: string) {
             const user = {
                 login: name,
-                password
+                password,
             };
             return this.http
                 .post('http://localhost:3000/api/authenticate', JSON.stringify(user))
-                .map(res => res);
+                .map(res => {
+                    return res;
+                });
         }
 
         public logout(): void {

@@ -12,7 +12,7 @@ export class TokenInterceptor implements HttpInterceptor {
     const duplicate = req.clone({ params: req.params.set('token', token) });
     const changedReq = req.clone({
       params: req.params.set('token', token),
-      headers: req.headers.set('Content-Type', 'application/json')
+      headers: req.headers.set('Content-Type', 'application/json'),
     });
     return next.handle(changedReq);
   }

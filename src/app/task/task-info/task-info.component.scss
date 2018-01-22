@@ -14,8 +14,14 @@
     }
   }
 
+  &__button {
+    margin-right: 10px;
+    margin-left: 0;
+  }
+
   &__actions {
     margin-bottom: 20px;
+    display: flex;
   }
 
   &__sub-title {

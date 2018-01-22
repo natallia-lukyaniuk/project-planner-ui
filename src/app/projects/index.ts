@@ -6,3 +6,4 @@ export * from './projects-list';
 export * from './dashboard-filters';
 export * from './projects.component';
 export * from './projects.service';
+export * from './calendar';
